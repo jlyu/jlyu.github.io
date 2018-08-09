@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Practical Vim 学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Which one is your favorite commend   ZenCoding TUTORIAL CheatSheet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Practical Vim 学习笔记">
+<meta property="og:url" content="http://yoursite.com/2013/04/10/2013-04-10-practical-vim-study-notes/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Which one is your favorite commend   ZenCoding TUTORIAL CheatSheet">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-05-25T15:19:35.642Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Practical Vim 学习笔记">
+<meta name="twitter:description" content="Which one is your favorite commend   ZenCoding TUTORIAL CheatSheet">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2013-04-10-practical-vim-study-notes" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/04/10/2013-04-10-practical-vim-study-notes/" class="article-date">
+  <time datetime="2013-04-10T00:13:00.000Z" itemprop="datePublished">2013-04-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Practical Vim 学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><a href="http://www.zhihu.com/question/19691653" target="_blank" rel="noopener">Which one is your favorite commend</a>  </li>
+<li><a href="https://raw.github.com/mattn/zencoding-vim/master/TUTORIAL" target="_blank" rel="noopener">ZenCoding TUTORIAL</a> <a href="https://zen-coding.googlecode.com/files/ZenCodingCheatSheet.pdf" target="_blank" rel="noopener">CheatSheet</a></li>
+</ul>
+<a id="more"></a>
+<h4 id="vimrc-dotfile-Setting-sp"><a href="#vimrc-dotfile-Setting-sp" class="headerlink" title=".vimrc dotfile Setting sp"></a>.vimrc dotfile Setting sp</h4><pre><code>set matchtime=1
+let g:user_zen_expandabbr_key=&apos;&lt;C-y&gt;&apos;
+nnoremap &lt;silent&gt;&lt;C-l&gt;: &lt;C-u&gt;nohlsearch&lt;CR&gt;&lt;C-l&gt;
+</code></pre><p>\&lt;CR> =[enter]</p>
+<p>####Tip1</p>
+<pre><code> .     =repeat last change ( when over insert mode, the total edit contents are included
+&gt;G  =auto indent
+</code></pre><p>####Tip2</p>
+<pre><code>A     =end of line insert
+$a    =the same effect above
+</code></pre><p>####Tip3</p>
+<pre><code>s      =instead of a char
+;       =repeat last f{char} commend
+</code></pre><p>####Tip4</p>
+<pre><code>@:     =repeat last EX commend
+</code></pre><p>####Tip5</p>
+<pre><code>*       =search the word which cursor hover over 
+</code></pre><p>####Tip8</p>
+<pre><code>u    =undo last change
+&lt;C-r&gt;  =undo undo
+</code></pre><p>####Tip9</p>
+<pre><code>daw   =delete word
+</code></pre><p>####Tip10</p>
+<pre><code>cW   =modify a word (symbol will be a normal char)
+180&lt;C-x&gt;  ???
+</code></pre><p>####Tip11</p>
+<pre><code>d2w = 2dw = dw. (but which one is the best?
+</code></pre><p>####Tip12</p>
+<pre><code>dl     =delete a char =x
+dap  =delete an entire paragraph
+g~, gU, gu  =convert char&apos;s capital and small letter
+gUap  =convert entire paragraph into Upper-case letter
+gUgU=gUU  =convert current line into Upper-case letter
+=G    =auto indent
+</code></pre><p>####Tip13</p>
+<pre><code>&lt;C-h&gt;   =delete back one char
+&lt;C-w&gt;   =delete back one word
+&lt;C-u&gt;   =delete back to start of line
+</code></pre><p>####Tip14</p>
+<pre><code>&lt;C-[&gt;   =back to NORMAL mode =&lt;ESC&gt;
+zz        =redraw the screen with the current line in the middle of window
+</code></pre><p>####Tip15</p>
+<pre><code>K         =looks up man page for the word under the cursor
+yt,       =yank the word befor , to {register}
+&lt;C-r&gt;0 =&lt;C-r&gt;{register}  = under INSERT mode, paste the register text
+&lt;C-r&gt;&lt;C-p&gt;{register}   =more smarter
+</code></pre><h4 id="Tip16"><a href="#Tip16" class="headerlink" title="Tip16"></a>Tip16</h4><pre><code>&lt;C-r&gt;={do math}&lt;CR&gt;  =do math for us under INSERT MODE
+</code></pre><h4 id="Tip17"><a href="#Tip17" class="headerlink" title="Tip17"></a>Tip17</h4><pre><code>ga   =inspect the code for the char under the cursor
+</code></pre><h4 id="Tip19"><a href="#Tip19" class="headerlink" title="Tip19"></a>Tip19</h4><pre><code>R   =engage REPLACE mode
+</code></pre><h4 id="Tip20"><a href="#Tip20" class="headerlink" title="Tip20"></a>Tip20</h4><pre><code>viw  =visually select word
+</code></pre><h4 id="Tip21"><a href="#Tip21" class="headerlink" title="Tip21"></a>Tip21</h4><pre><code>v         =into VISUAL mode
+V         =line-wise VISUAL mode
+&lt;C-v&gt;  =block-wise VISUAL mode
+gv        =reselect the last VISUAL mode
+o          =(VISUAL) redefine the bounds of the selection
+</code></pre><h4 id="Tip22"><a href="#Tip22" class="headerlink" title="Tip22"></a>Tip22</h4><pre><code>2&gt;     =(VISUAL) indent twice
+</code></pre><h4 id="Tip23"><a href="#Tip23" class="headerlink" title="Tip23"></a>Tip23</h4><pre><code>vit    =select the inner contents of a tag (HTML) -&gt;cit,dit
+U      =(VISUAL) convert the selected char to upper-case
+gUit
+</code></pre><h4 id="Tip24"><a href="#Tip24" class="headerlink" title="Tip24"></a>Tip24</h4><pre><code>Vr-   =replace every chars in VISUAL line with -
+</code></pre><h4 id="Tip25"><a href="#Tip25" class="headerlink" title="Tip25"></a>Tip25</h4><pre><code>&lt;C-r&gt;3je   =quick VISUAL-block select
+c               =[VISUAL] change one word
+</code></pre><h4 id="Tip26"><a href="#Tip26" class="headerlink" title="Tip26"></a>Tip26</h4><pre><code>&lt;C-v&gt;$A;[Esc]    =Append ; on the end of every selected line 
+</code></pre><h4 id="Tip27"><a href="#Tip27" class="headerlink" title="Tip27"></a>Tip27</h4><pre><code>:$    =[EX] the end of the file
+:.     =[EX] the current line of the file
+:%   =[EX] all the lines in the current file
+</code></pre><h4 id="Tip28"><a href="#Tip28" class="headerlink" title="Tip28"></a>Tip28</h4><pre><code>:[range]copy|co|t{address}    =[EX] make a copy of line{range} put it blew the {address}
+:&apos;&lt;,&apos;&gt;    =[VISUAL] + [EX] 
+&lt;C-r&gt;dGp   =select texture move to the end of the file
+</code></pre><h4 id="Tip29"><a href="#Tip29" class="headerlink" title="Tip29"></a>Tip29</h4><pre><code>:[range]m{address} =[EX] cut of lines{range} and put it blew the {address}
+Vjj :&apos;&lt;,&apos;&gt;m$   =move selected lines to the end of the file
+</code></pre><h4 id="Tip30-gt-67-69"><a href="#Tip30-gt-67-69" class="headerlink" title="Tip30 (=&gt;67,69)"></a>Tip30 (=&gt;67,69)</h4><pre><code>VG   =from current line to the end of file make VISUAL select
+:&apos;&lt;,&apos;&gt;normal.  =for each line in the VISUAL selection, and execute . commend
+:9,13normal A;    =with end of the 9th~13rd line append to ;
+:9,13normal i//    =the 9~13lines become comments
+</code></pre><h4 id="Tip31"><a href="#Tip31" class="headerlink" title="Tip31"></a>Tip31</h4><pre><code>:bn[ext]     =step forward through the buff list
+:bp[revious]    =backward
+</code></pre><h4 id="Tip32"><a href="#Tip32" class="headerlink" title="Tip32"></a>Tip32</h4><pre><code>:&lt;C-d&gt;    =[EX] ask vim reveal a list of possible completation
+</code></pre><h4 id="Tip33-gt-76"><a href="#Tip33-gt-76" class="headerlink" title="Tip33 (=&gt;76)"></a>Tip33 (=&gt;76)</h4><pre><code>:%s//&lt;C-r&gt;&lt;C-w&gt;/g  =[EX] &lt;C-r&gt;&lt;C-w&gt; equal mapping copies the word under the cursor
+</code></pre><h4 id="Tip34-gt-85"><a href="#Tip34-gt-85" class="headerlink" title="Tip34 (=&gt;85)"></a>Tip34 (=&gt;85)</h4><pre><code>q:    =open the command-line window with history of EX command
+q/    =open the command-line window with history of searches
+</code></pre><h4 id="Tip35-gt-44"><a href="#Tip35-gt-44" class="headerlink" title="Tip35 (=&gt;44)"></a>Tip35 (=&gt;44)</h4><pre><code>:!{cmd}    =excute {cmd} with the shell
+:shell       =start a shell
+:read !{cmd}    =excute {cmd} in the shell and insert its standard output below the cursor
+:[range]write !{cmd}   = ... with [range] lines as standard input
+</code></pre><h4 id="Tip36"><a href="#Tip36" class="headerlink" title="Tip36"></a>Tip36</h4><pre><code>:ls    =give us a listing of all the buffers
+&lt;C-^&gt;  =quick toggle between the current and alternate files
+:bf :bl  =jump to the start or end of the list
+:bd      =delete a buffer
+</code></pre><h4 id="Tip37"><a href="#Tip37" class="headerlink" title="Tip37"></a>Tip37</h4><pre><code>:args    =open argument list
+</code></pre><h4 id="Tip38"><a href="#Tip38" class="headerlink" title="Tip38"></a>Tip38</h4><pre><code>&lt;C-w&gt;v | :sp {file}      =split the window vertically
+&lt;C-w&gt;s | :vsp {file}    =divide the window horizontally
+&lt;C-w&gt;w                      =cycle between open windows
+&lt;C-w&gt;hjkl                   =switch to activate window
+&lt;C-w&gt;o | :on              =keep only the active window
+</code></pre><h4 id="Tip40"><a href="#Tip40" class="headerlink" title="Tip40"></a>Tip40</h4><pre><code>:lcd {path}    =set the working dictory locally for the current window (not tab page)
+:windo lcd {path}    = ...all windows
+:tabe {file}    =open a new tab page
+:{N}gt            =switch to tab page number {N}
+:gt                 =switch to the next tab page
+:gT                =switch to the previous tab page
+:tabm {N}     =rearrage tab page Number
+</code></pre><h4 id="Tip44"><a href="#Tip44" class="headerlink" title="Tip44"></a>Tip44</h4><pre><code>:!mkdir -p %:h    =create nonexistent directories
+</code></pre><h4 id="Tip47"><a href="#Tip47" class="headerlink" title="Tip47"></a>Tip47</h4><pre><code>w    =prev cu[r]rent [n]ext
+b    =prev [c]u[r]rent next
+e    =prev cu[r]ren[t] next
+ge  =pre[v] cu[r]rent next
+</code></pre><h4 id="Tip48"><a href="#Tip48" class="headerlink" title="Tip48"></a>Tip48</h4><pre><code>ea    =append at the end of the current word
+gea   =append at the end of the previous word
+</code></pre><h4 id="Tip49"><a href="#Tip49" class="headerlink" title="Tip49"></a>Tip49</h4><pre><code>f|F|t|T{char};,    =find the {char} and move to it
+</code></pre><h4 id="Tip50"><a href="#Tip50" class="headerlink" title="Tip50"></a>Tip50</h4><pre><code>d/ge&lt;CR&gt;    =tell the d{motion} command what to delete
+</code></pre><h4 id="Tip52"><a href="#Tip52" class="headerlink" title="Tip52"></a>Tip52</h4><pre><code>ciw     =delete the word without trimming any whitespace
+</code></pre><h4 id="Tip53"><a href="#Tip53" class="headerlink" title="Tip53"></a>Tip53</h4><pre><code>``    =position before the last jump within current file
+</code></pre><h4 id="Tip54"><a href="#Tip54" class="headerlink" title="Tip54"></a>Tip54</h4><pre><code>%    =jump between opening and closing sets of parenthese
+</code></pre><h4 id="Tip55"><a href="#Tip55" class="headerlink" title="Tip55"></a>Tip55</h4><pre><code>&lt;C-o&gt;    =the back button
+&lt;C-i&gt;    =the forward button
+:jumps    =inspect the contents of the jump list
+(              =jump to start of previous sentence
+{             =jump to start of previous paragraph
+gf           =jump to the filename under cursor
+&lt;C-]&gt;     =jump to definition of keyword under the cursor
+</code></pre><h4 id="Tip56"><a href="#Tip56" class="headerlink" title="Tip56"></a>Tip56</h4><pre><code>:changes    =call the change list
+</code></pre><h4 id="Tip57"><a href="#Tip57" class="headerlink" title="Tip57"></a>Tip57</h4><pre><code>:set path?
+gf | &lt;C-]&gt;    =commands provide wormholes that transport us from one part of our codebase to another
+</code></pre><h4 id="Tip58"><a href="#Tip58" class="headerlink" title="Tip58"></a>Tip58</h4><pre><code>m{letter}    =create a mark at the current cursor position (L-&gt;local buff; U-&gt;Global marks)
+`{letter}     =back to mark
+:marks       =open marks&apos; list
+</code></pre><h4 id="Tip59"><a href="#Tip59" class="headerlink" title="Tip59"></a>Tip59</h4><pre><code>xp    =transport the next two char
+ddp    =transport the order of this line and its successor
+P        =paste the contents of our unnamed register in front of the cursor
+</code></pre><h4 id="Tip60"><a href="#Tip60" class="headerlink" title="Tip60"></a>Tip60</h4><pre><code>:reg    =open registers&apos; list
+&quot;{register}    =call register
+&quot;_d{motion}
+&quot;+ | &quot;*    =X11 clipboard, used with cut, co, and paste
+&quot;% &quot;# &quot;. &quot;: &quot;/
+</code></pre><h4 id="Tip61"><a href="#Tip61" class="headerlink" title="Tip61"></a>Tip61</h4><pre><code>gvp     =switch the paste content in VISUAL mode
+</code></pre><h4 id="Tip62"><a href="#Tip62" class="headerlink" title="Tip62"></a>Tip62</h4><pre><code>yiwciw&lt;C-r&gt;0&lt;Esc&gt;   =some sequence of action make copy and paste
+</code></pre><h4 id="Tip63"><a href="#Tip63" class="headerlink" title="Tip63"></a>Tip63</h4><pre><code>q{ register }    =start record a sequence of changes
+@{ register }   =execute the contents of register
+</code></pre><h4 id="Tip66"><a href="#Tip66" class="headerlink" title="Tip66"></a>Tip66</h4><pre><code>qq;.q22@q
+</code></pre><h4 id="Tip67"><a href="#Tip67" class="headerlink" title="Tip67"></a>Tip67</h4><pre><code>:&apos;&lt;,&apos;&gt;normal @a    =tell vim to execute the MACRO once for each line in the selection
+</code></pre><h4 id="Tip68"><a href="#Tip68" class="headerlink" title="Tip68"></a>Tip68</h4><pre><code>qA    =append commands to the existing contents of register a
+</code></pre><h4 id="Tip70"><a href="#Tip70" class="headerlink" title="Tip70"></a>Tip70</h4><pre><code>:let i=1    =create a variable
+qaI&lt;C-r&gt;=&lt;CR&gt;)&lt;Esc&gt; :let i+=1 q
+:&apos;&lt;,&apos;&gt;normal @a
+</code></pre><h4 id="Tip71"><a href="#Tip71" class="headerlink" title="Tip71"></a>Tip71</h4><pre><code>:put a    =paste the contents of register
+</code></pre><h4 id="Tip83"><a href="#Tip83" class="headerlink" title="Tip83"></a>Tip83</h4><pre><code>/lang/e&lt;CR&gt;
+</code></pre><h4 id="Tip88"><a href="#Tip88" class="headerlink" title="Tip88"></a>Tip88</h4><pre><code>:s/going/rolling
+:s/going/rolling/g
+:%s/going/rolling/g
+</code></pre><h4 id="Tip93"><a href="#Tip93" class="headerlink" title="Tip93"></a>Tip93</h4><pre><code>/\v^([^,]*),([^,]*),([^,]*)$
+:%s//\3,\2,\1
+</code></pre><h4 id="Tip99"><a href="#Tip99" class="headerlink" title="Tip99"></a>Tip99</h4><pre><code>:g/TODO/t$
+</code></pre><h4 id="Tip100"><a href="#Tip100" class="headerlink" title="Tip100"></a>Tip100</h4><pre><code>:&apos;&lt;,&apos;&gt;sort
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/04/10/2013-04-10-practical-vim-study-notes/" data-id="cjkmjs6yg001l3kjhf881qif1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/04/23/2013-04-23-spatial-thinking-information-collate/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          空间、信息、思考的整理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/04/07/2013-04-07-personal-myth-of-foreign-language-learning/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">个人对外语学习的迷思</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/tech/">tech</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/notes/">notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reincarnation/">reincarnation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/swift/">swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/todo/">todo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/weekly/">weekly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/yearly/">yearly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/08/09/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/08/2018-08-08-body-transformation-stage-1/">人体改造·第一阶段</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/12/2017-12-12-2017年回顾总结/">2017年回顾总结</a>
+          </li>
+        
+          <li>
+            <a href="/2014/06/17/2014-06-17-intermediate-swift/">403 Intermediate Swift</a>
+          </li>
+        
+          <li>
+            <a href="/2014/06/12/2014-06-12-人生RPG·翻译出版/">人生RPG·翻译出版</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>403 Intermediate Swift | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="此篇是WWCD 2014 Session 403 的学习笔记。主要涉及 Optionals、Memory Management、Initialization、Closure、Matching Pattern 这些主题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="403 Intermediate Swift">
+<meta property="og:url" content="http://yoursite.com/2014/06/17/2014-06-17-intermediate-swift/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="此篇是WWCD 2014 Session 403 的学习笔记。主要涉及 Optionals、Memory Management、Initialization、Closure、Matching Pattern 这些主题。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/aae020a8gw1ehg0123nr2j20nc069dgu.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/aae020a8gw1ehg012rb9rj20pu0d9dih.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/aae020a8gw1ehg0t5ydusj20ue0bhgps.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/aae020a8gw1ehfyl2y6r1j20nc05vdgt.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/aae020a8gw1ehg2k0ira5j20nc0c8q58.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/aae020a8gw1ehg2vufhflj20nc07x0uc.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/aae020a8gw1ehgy4cjkmsj20tm0don0n.jpg">
+<meta property="og:updated_time" content="2017-05-25T15:18:21.301Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="403 Intermediate Swift">
+<meta name="twitter:description" content="此篇是WWCD 2014 Session 403 的学习笔记。主要涉及 Optionals、Memory Management、Initialization、Closure、Matching Pattern 这些主题。">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/aae020a8gw1ehg0123nr2j20nc069dgu.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2014-06-17-intermediate-swift" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/06/17/2014-06-17-intermediate-swift/" class="article-date">
+  <time datetime="2014-06-16T20:22:00.000Z" itemprop="datePublished">2014-06-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/swift/">swift</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      403 Intermediate Swift
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>此篇是WWCD 2014 Session 403 的学习笔记。主要涉及 Optionals、Memory Management、Initialization、Closure、Matching Pattern 这些主题。</p>
+<a id="more"></a>
+<h2 id="Optionals"><a href="#Optionals" class="headerlink" title="Optionals"></a><strong>Optionals</strong></h2><p>这个概念，肯定会在学习 Swift 过程中掉坑里。<br>使用 <code>Optional type</code> 是用来表示缺失值，主要为确保类型安全。声明 optional 变量时，在声明类型后加一个 <code>?</code> 可以把任意的 optional 想象成一个盒子，在未实际打开这个盒子之前，它总是存在两种情况：要么有东西，要么是空盒。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> optionalNumber: <span class="type">Int</span>?  <span class="comment">// default initialized to nil</span></span><br><span class="line">optionalNumber = <span class="number">42</span></span><br></pre></td></tr></table></figure>
+<p><code>Non-Optional Type</code> 顾名思义，那 Swift 中规定一个 Non-Optional can’t be nil ，也就是</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> optionalString: <span class="type">String</span> = <span class="literal">nil</span>  <span class="comment">// 会引发 compile error</span></span><br></pre></td></tr></table></figure>
+<p><code>Unwrapped Optionals</code><br>! 是 ImplicitlyUnwrappedOptional\<t> 的语法糖，如果对 nil 进行 ! 操作，会得到 runtime error。 因此，在使用 ! 做 unwrap 操作时应抱着必死决心以得到原来实际的类型的值，也就是拿到 Optional 内部值。</t></p>
+<p>Session 中有给出一个具体的例子，再回顾一次。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">func findIndexOfString(string: String, array: String[]) -&gt; Int? &#123;</span><br><span class="line">    for(index, value) in enumerate(array) &#123;</span><br><span class="line">        if value == string &#123;</span><br><span class="line">            return index</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return nil // 因为将 Int? 作为 (Optional) Return Type， 这里可以使用 nil 返回</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var neighbors = [&quot;Alex&quot;, &quot;Ama&quot;, &quot;Madsion&quot;, &quot;Dave&quot;]</span><br><span class="line">let index = findIndexOfString(&quot;Madsion&quot;, neighbors)</span><br><span class="line">if index &#123;</span><br><span class="line">    println(&quot;\(neighbors[index!])&quot;) // 因为 index 是 Int? 这里必须 forced unwrap </span><br><span class="line">&#125;   // 或 if let indexValue = index &#123; println(&quot;\(neighbors[indexValue])&quot;) &#125;</span><br></pre></td></tr></table></figure>
+<p><code>Optional Binding</code>其定义是： test and unwrap at the same time，即 optional 配合 if let 一起使用，这样可以从逻辑上和可读性上更为简洁。上述的例子中，改写一下： if indexValue = index // 这个时候已经 unwrap 可以直接使用 index 的内部值了。</p>
+<p>当需要多处链环 optional banding 的业务逻辑（if多层嵌套）时，引出 Optional Chaining 的概念。同一条链上东西，只要其中一环是 nil，那么整条链就会返回 nil ；对 nil 做 forced unwrap 则抛出 runtime error<br><code>Optional Chaining</code> 其定义：combine with optional binding to unwrap </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> addressNumber = paul.residence?.address?.buildingNumber?.toInt()</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">**<span class="type">Optional</span> 总结**</span><br><span class="line">使用 <span class="keyword">optional</span>(?) 是为了安全地处理 missing value。（为了兼容 <span class="type">ObjC</span>）  </span><br><span class="line">+ missing value 全是 <span class="literal">nil</span>  </span><br><span class="line">+ present value 被 wrap 在 <span class="keyword">optional</span> 内  </span><br><span class="line"></span><br><span class="line">unwrap(!) 一个 <span class="keyword">optional</span> 以访问其内部值</span><br><span class="line">+ 只有当你有确实的把握，才使用 ! 来 forced unwrap</span><br><span class="line">+ 使用 <span class="keyword">if</span> <span class="keyword">let</span> (<span class="keyword">optional</span> binding) 可同时测试和 unwrap </span><br><span class="line"></span><br><span class="line">当 <span class="keyword">optional</span> binding 嵌套太多时，使用 <span class="keyword">optional</span> chaining</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## **<span class="type">Memory</span> <span class="type">Management</span>**    </span><br><span class="line">使用 <span class="type">Automatic</span> <span class="type">Reference</span> <span class="type">Counting</span> 技术的确可以减轻开发者对内存管理的额外负担，但是由于引用的设置不当，形成 strong reference cycle 同样会存在 strong reference retain 的问题，从而造成 memory leak 。 <span class="type">Session</span> 从对象之间不同的关联角度应用不同的方法来解决这个问题。</span><br><span class="line"></span><br><span class="line">#### <span class="type">Ownership</span></span><br><span class="line">假设存在<span class="number">2</span>个类：<span class="type">Apartment</span> 和 <span class="type">Person</span>。两者之间存在相互关联关系，即 <span class="type">Person</span> 作为 <span class="type">Apartment</span> 的 tenant ；<span class="type">Apartment</span> 则作为 <span class="type">Person</span> 类中的 home。</span><br><span class="line"></span><br><span class="line">``` swift</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apartment</span> </span>&#123; <span class="keyword">var</span> tenant: <span class="type">Person</span>? &#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123; </span><br><span class="line">    <span class="keyword">var</span> home: <span class="type">Apartment</span>? </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">moveIn</span> <span class="params">(apt: Apartment)</span></span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.home = apt</span><br><span class="line">        apt.tenant = <span class="keyword">self</span> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> renters = [<span class="string">"Els"</span>: <span class="type">Person</span>()]</span><br><span class="line"><span class="keyword">var</span> apts = [<span class="number">507</span>: <span class="type">Apartment</span>()]</span><br><span class="line">renters[<span class="string">"Els"</span>]!.moveIn(apts[<span class="number">507</span>]!)</span><br></pre></td></tr></table></figure>
+<p>在任意对象解除引用之后（renters = nil 和或 apts = nil ），被引用的 Person 和 Apartment 之间由于已形成 Strong Ref cycle，导致 Person 和 Apartment 的 2 个 instances 牢牢地相互绑定，谁也无法从中抽身。<br><img src="http://ww2.sinaimg.cn/large/aae020a8gw1ehg0123nr2j20nc069dgu.jpg" alt=""></p>
+<p>为了打破僵局，引入 <code>Weak Reference</code> 的做法，定义：A weak reference is a reference that does not keep a strong hold on the instance it refers to, and so does not stop ARC from disposing of the referenced instance. 在声明成员变量的时，前置 <code>weak</code> 关键字。 且注意 <strong>所有的 weak ref 都是 optional value，因此无法声明成 let</strong><br><img src="http://ww1.sinaimg.cn/large/aae020a8gw1ehg012rb9rj20pu0d9dih.jpg" alt=""><br>一旦 deallocate 任意变量，renters = nil 后，即再没有 Ref 指向 Person ，所以 Person Instance 得以 deinit。 之后，如果 apts = nil，那么Apartment Instance 也被 deinit。</p>
+<p>另外在方法调用过程中，也存在 Strong / Weak Ref</p>
+<pre><code class="swift"><span class="keyword">if</span> <span class="keyword">let</span> tenant = apt.tenant { 
+    tenant.buzzIn() <span class="comment">// BINDING the optional produces a Strong Ref</span>
+}
+等价于 
+apt.tenant?.buzzIn()
+</code></pre>
+<pre><code class="swift"><span class="keyword">if</span> apt.tenant {
+    apt.tenant!.buzzIn() <span class="comment">// TESTING a Weak Ref alone does not produce a Strong Ref</span>
+}
+</code></pre>
+<p>在调用链上不会保存 Strong Ref  </p>
+<h4 id="Same-Lifetime-Relationships"><a href="#Same-Lifetime-Relationships" class="headerlink" title="Same-Lifetime Relationships"></a>Same-Lifetime Relationships</h4><p>上述的例子发生在两个(生命周期独立的)类中，对实例变量的 ownership 产生的 Strong Ref 的化解。接下来，看一下对有着相同生命周期的对象之间的引用关系。下面这个例子使用到 <code>Unowned Reference</code> 定义：an unowned reference does not keep a strong hold on the instance it refers to. Unlike a weak reference, however, an unowned reference is assumed to always have a value. 可见，unowned 和 Weak 相似，本质的区别在于 unowned ref 总是存在一个确定的值。<br><img src="http://ww3.sinaimg.cn/large/aae020a8gw1ehg0t5ydusj20ue0bhgps.jpg" alt=""><br>CreditCard.holder 必须存在一个确定的值，因此在此声明为 unowned 。 如果不这样做，当 customers = nil ，由于 Strong Ref Cycle 的作用，再次导致任意 instance 无法 deiniticalization。 声明成 unowned，customers = nil 之后， Person 的 instance 可以 deinit， 之后没有对 CreditCard 的 Strong Ref， 那么 CreditCard 的 instance 也可以 deinit。</p>
+<p><strong>Strong、Weak、Unowned Reference 总结</strong><br><img src="http://ww3.sinaimg.cn/large/aae020a8gw1ehfyl2y6r1j20nc05vdgt.jpg" alt=""></p>
+<ul>
+<li>从 owner 方使用 Strong Ref 表明它们对 objects 的绝对拥有权。（被 Ref 的 Objects ，只要存在一根 Ref 关系线就不能 deinit）</li>
+<li>在生命周期内相互独立的 Objects 之间，使用 Weak Ref。（Ref 线以虚线表示，实际上对 Objects 的 deinit 不造成影响）</li>
+<li>当 owner 和 objects 有相同的生命周期，那么使用 unowned Ref。（与 weak 的区别还在于 object 必须有确定值）</li>
+</ul>
+<h2 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a><strong>Initialization</strong></h2><p>Session 中强调数遍的简单规则：每个值在使用前 <strong>必须</strong> 被初始化。 如果某个值没有被初始化过(可能是逻辑覆盖不完整，同样会导致编译错误)</p>
+<h4 id="Initializers"><a href="#Initializers" class="headerlink" title="Initializers"></a>Initializers</h4><p>负责一个 instance 的全部初始化工作， init()</p>
+<h4 id="Structure-Initialization"><a href="#Structure-Initialization" class="headerlink" title="Structure Initialization"></a>Structure Initialization</h4><p>在 init() 内不能缺少对任何一个成员变量的初始化，必须全部覆盖到，这个做法同样是满足 Rule 的要求。如果存在类似 mutating func validateColor() {…} 的方法，不允许放在变量初始化前，因为会调用 self.validateColor() 而这时候的 self 尚未初始化完毕。如果 Struct 没有提供显式的 init(),在声明实例时 <strong>依照变量名的声明顺序</strong> 进行初始化赋值。</p>
+<h4 id="Class-Initialization"><a href="#Class-Initialization" class="headerlink" title="Class Initialization"></a>Class Initialization</h4><p>这里有一个比较重要的概念是，Swift 总是初始化全部的成员变量之后，再调用 super.init() 这点跟 ObjC 的做法相反。</p>
+<h4 id="Convenience-Initialiers"><a href="#Convenience-Initialiers" class="headerlink" title="Convenience Initialiers"></a>Convenience Initialiers</h4><p>前置 Convenience 关键字，可以为 class 声明不同的 init。在 init 内部需要手动调用 self.init(…) 来匹配对应的 init 版本。<br><img src="http://ww2.sinaimg.cn/large/aae020a8gw1ehg2k0ira5j20nc0c8q58.jpg" alt="">  </p>
+<h4 id="Initializer-Inheritance"><a href="#Initializer-Inheritance" class="headerlink" title="Initializer Inheritance"></a>Initializer Inheritance</h4><p><img src="http://ww2.sinaimg.cn/large/aae020a8gw1ehg2vufhflj20nc07x0uc.jpg" alt=""></p>
+<p><strong>Initialization 总结</strong><br>Rule: 在使用（某个实例）之前 <strong>必须</strong> 初始化所有的值。<br>首先设置所有的 Stored properties， 之后再调用 super.init 方法初始化父类<br>在实例消灭前存在析构方法 deinit ，你可以使用它干些 clean work，如果有必要的话..多数情况不用<br>Designated initializers only delegate UP （子类能对父类进行 <strong>纵向</strong> 的 init 操作： super.init）<br>Convenience initializers only delegate ACROSS (在同一个类中进行 <strong>横向</strong> 的 init 操作： self.init。convenince init 不能调用 super.init) </p>
+<h2 id="Closures"><a href="#Closures" class="headerlink" title="Closures"></a><strong>Closures</strong></h2><p>Session 首先给出了一个字符串 sort 的具体例子，然后按特性一步步简化代码，并利用 Trailing Closures 演示 Functional Programming 的可能性。</p>
+<pre><code class="swift"><span class="keyword">var</span> clients = [<span class="string">"Pestov"</span>, <span class="string">"Buenaventura"</span>, <span class="string">"Sceeram"</span>, <span class="string">"Babbage"</span>]
+cliens.<span class="built_in">sort</span>({(a:<span class="type">String</span>, b:<span class="type">String</span>)-&gt;<span class="type">Bool</span> <span class="keyword">in</span>
+    <span class="keyword">return</span> a &lt; b <span class="comment">// 可进行各类 Bool 判定，比如字符串长度</span>
+})
+</code></pre>
+<p><code>Type Inference</code> struct Array\<t> { func sort(order: (T,T)-&gt;Bool) } 通过类型推导的特性，可以直接把参数的类型省略，clients.sort({a,b in return a &lt; b})<br><code>Implicit Returen</code>  clients.sort({a,b in a &lt; b})<br><code>Implicit Arguments</code> clients.sort({ $0 &lt; $1 })<br><code>Trailing Closures</code>  clients.sort { $0 &lt; $1 }<br><code>Functional Programming</code></t></p>
+<pre><code class="swift"><span class="built_in">println</span>(<span class="string">"..."</span> + words.<span class="built_in">filter</span>{$<span class="number">0</span>.hasSuffix(<span class="string">"gry"</span>)}
+                     .<span class="built_in">map</span>{$<span class="number">0</span>.uppercaseString}
+                     .<span class="built_in">reduce</span>(<span class="string">"HULK"</span>){<span class="string">"<span class="subst">\($<span class="number">0</span>)</span> <span class="subst">\($<span class="number">1</span>)</span>"</span>} + <span class="string">"!!!"</span>)
+</code></pre>
+<h4 id="Closures-同样会出现-Strong-Ref-问题"><a href="#Closures-同样会出现-Strong-Ref-问题" class="headerlink" title="Closures 同样会出现 Strong Ref 问题"></a>Closures 同样会出现 Strong Ref 问题</h4><p>原因是 Closure 全是 ARC Objects<br><img src="http://ww4.sinaimg.cn/large/aae020a8gw1ehgy4cjkmsj20tm0don0n.jpg" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/06/17/2014-06-17-intermediate-swift/" data-id="cjkmjs6yj001n3kjhz8favi00" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/12/2017-12-12-2017年回顾总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2017年回顾总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/06/12/2014-06-12-人生RPG·翻译出版/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">人生RPG·翻译出版</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/tech/">tech</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/notes/">notes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/reincarnation/">reincarnation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/swift/">swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/todo/">todo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/weekly/">weekly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/yearly/">yearly</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/08/09/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/08/2018-08-08-body-transformation-stage-1/">人体改造·第一阶段</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/12/2017-12-12-2017年回顾总结/">2017年回顾总结</a>
+          </li>
+        
+          <li>
+            <a href="/2014/06/17/2014-06-17-intermediate-swift/">403 Intermediate Swift</a>
+          </li>
+        
+          <li>
+            <a href="/2014/06/12/2014-06-12-人生RPG·翻译出版/">人生RPG·翻译出版</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
