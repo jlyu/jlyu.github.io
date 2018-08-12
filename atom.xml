@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jlyu.github.io/"/>
-  <updated>2017-05-25T15:39:28.495Z</updated>
+  <updated>2018-08-12T14:33:27.318Z</updated>
   <id>https://jlyu.github.io/</id>
   
   <author>
@@ -17,31 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://jlyu.github.io/2018/08/09/hello-world/"/>
-    <id>https://jlyu.github.io/2018/08/09/hello-world/</id>
-    <published>2018-08-09T12:37:17.921Z</published>
-    <updated>2017-05-25T15:39:28.495Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Useful-commands"><a href="#Useful-commands" class="headerlink" title="Useful commands"></a>Useful commands</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line">$ cnpm install hexo-deployer-git --save</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/tufu9441/maupassant-hexo.git themes/maupassant</span><br><span class="line">$ cnpm install hexo-renderer-jade@0.3.0 --save</span><br><span class="line">$ cnpm install hexo-renderer-sass --save</span><br><span class="line">$ cnpm i --save gitment</span><br></pre></td></tr></table></figure><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>人体改造·第一阶段</title>
     <link href="https://jlyu.github.io/2018/08/08/2018-08-08-body-transformation-stage-1/"/>
     <id>https://jlyu.github.io/2018/08/08/2018-08-08-body-transformation-stage-1/</id>
     <published>2018-08-07T16:00:00.000Z</published>
-    <updated>2018-08-12T14:23:58.290Z</updated>
+    <updated>2018-08-12T14:33:27.318Z</updated>
     
-    <content type="html"><![CDATA[<p>回顾人生，时光匆匆，10年已过。<br>作为成就，达成不少，略过不表。</p><p>至此，想规划未来10年的人生，将来能够活得轻松安全一些，那么现在就有必要对自己重新审视，付诸行动改造自己。<br>一个比较初略未熟的想法：先重塑自己的肉体，再充实自己的大脑，。。。</p><h4 id="人体改造·第一阶段-2018-07-开始"><a href="#人体改造·第一阶段-2018-07-开始" class="headerlink" title="人体改造·第一阶段 2018.07 开始"></a>人体改造·第一阶段 2018.07 开始</h4><ul><li><p>目标（Target）  <code>人体改造</code> </p></li><li><p>量化（Quantification） </p><ul><li>每天饮水量 2333 ml</li><li>每天步行数 10000 步</li><li>工作日晚餐减量，配合吃 150g 鸡胸肉</li><li>每周夜跑4-5次，每次4公里（第一阶段400公里）  </li><li>睡眠时间段修正：1：00 ~ 8：00（±2） </li></ul></li><li><p>改进（Improvement）</p><ul><li>暂无  </li></ul></li><li><p>验证（Evaluation）</p><ul><li>第一阶段：体重降至 60 KG </li></ul></li></ul><a id="more"></a><p><a href="/images/2018/healthView.1807.jpg">1807</a></p>]]></content>
+    <content type="html"><![CDATA[<p>回顾人生，时光匆匆，10年已过。<br>作为成就，达成不少，略过不表。</p><p>至此，想规划未来10年的人生，将来能够活得轻松安全一些，那么现在就有必要对自己重新审视，付诸行动改造自己。<br>一个比较初略未熟的想法：先重塑自己的肉体，再充实自己的大脑，。。。</p><h4 id="人体改造·第一阶段-2018-07-开始"><a href="#人体改造·第一阶段-2018-07-开始" class="headerlink" title="人体改造·第一阶段 2018.07 开始"></a>人体改造·第一阶段 2018.07 开始</h4><ul><li><p>目标（Target）  <code>人体改造</code> </p></li><li><p>量化（Quantification） </p><ul><li>每天饮水量 2333 ml</li><li>每天步行数 10000 步</li><li>工作日晚餐减量，配合吃 150g 鸡胸肉</li><li>每周夜跑4-5次，每次4公里（第一阶段400公里）  </li><li>睡眠时间段修正：1：00 ~ 8：00（±2） </li></ul></li><li><p>改进（Improvement）</p><ul><li>暂无  </li></ul></li><li><p>验证（Evaluation）</p><ul><li>第一阶段：体重降至 60 KG </li></ul></li></ul><a id="more"></a><p><img src="/images/2018/healthView.1807.jpg" alt="1807" title="1807"></p>]]></content>
     
     <summary type="html">
     
@@ -449,6 +431,30 @@
     </summary>
     
       <category term="weekly" scheme="https://jlyu.github.io/categories/weekly/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>手に負えないことをやらなきゃ</title>
+    <link href="https://jlyu.github.io/2012/10/13/2012-10-13-9-12m-todo-list/"/>
+    <id>https://jlyu.github.io/2012/10/13/2012-10-13-9-12m-todo-list/</id>
+    <published>2012-10-13T08:00:00.000Z</published>
+    <updated>2018-08-09T14:54:29.974Z</updated>
+    
+    <content type="html"><![CDATA[<p>这81天我干了些啥  </p><p><img src="http://media.tumblr.com/tumblr_maaj1fGOq31rqghq6.png"></p><br><p>这周周末开学了，于是惯例做下9月-12月的计划。接下来的4个月会插入MSE的标签。</p><br><pre><span class="term_note"><strong>日常记事</strong></span></pre><br><ul><li><strike>09月中旬<a href="http://www.kobaioh.com/special/20120913_half_canpaign/" target="_blank">购买王</a>『からくりサーカス』14-16</strike></li><br><li>12月中旬<a href="http://www.kobaioh.com/special/20120913_half_canpaign/" target="_blank">购买王</a>『からくりサーカス』17-19</li><br></ul><pre><span class="term_note"><strong>MSE课程</strong></span></pre><br><ul><li><strike>课程表的确认与作成</strike></li><br><li><strike>教材的购买</strike></li><br><li><strike>9月11日开始 (误)  CET6网上报名，12月底陪同学再刷一次成绩</strike></li><br><li><strike>150~300 words Abstract  (Deadline-10-06)</strike></li><br><li><strike>SAE平台介绍PPT作成及演讲 (Deadline-10-13)</strike></li><br><li><strike>高级软件工程的选题和组队 (Deadline-10-18)</strike></li><br><li>基于SAE的企业库存管理系统实现研究报告  (Deadline-11-30)</li><br><li>Chain Challenge CET6 one more time  (Deadline-12-15)</li><br><li>知识产权主题相关论文3500字 (Deadline-12-10|20)</li><br><li>基于Hadoop建立的反向索引应用 (Deadline-2012 later)</li><br><li>基于HBase建立数据表  (Deadline-2012 later)</li><br><li><strike>Web App: 贸易公司进销存管理系统 (Deadline-2012 later)</strike></li><br></ul><pre><span class="term_note"><strong>学习计划</strong></span></pre><br><ul><li><strike>学习JavaScript和JQuery</strike></li><br><li><strike><a href="http://tmblr.co/ZXEE7vTXlme-" target="_blank">基于SAE的进销存管理系统的技术实现</a> (Deadline: 8W→11.11) </strike></li><br><li>《HTTP权威指南》先速读扫一遍，700多页的大部头。</li><br><li>《Shell脚本学习指南》学完， 能用shell写一份装机用script。深入了解文本处理命令</li><br><li><a href="http://coolshell.cn/articles/1379.html" target="_blank">bash脚本调试</a> </li><br><li>Linux 模块化系统操作的Review，先列目录，如下。</li><br><li>Linux CLI 修改 font，<strike>color</strike></li><br><li>学习下VIM的Vundle插件 </li><br><li><strike>重装Debian，手动分区。安装chrome，VMware，nutcloud，git，配置编程环境，</strike>PDF阅读软件，Openoffice办公软件(可选)，用thunderbird收发邮件</li><br><li>学习gnupg和签名技术</li><br></ul><pre><span class="term_note"><strong>Linux目录</strong></span></pre><br><ul><li>1. <strong>系统架构</strong></li><br><ul><li>修改运行级别并关闭或重启系统</li><br></ul><li>2. <strong>Linux 安装和包管理</strong></li><br><ul><li>硬件布局</li><br><li>引导管理器</li><br><li>管理共享库</li><br><li>[+]Debian 包管理</li><br><li>[+]使用 RPM 和 YUM 包管理 →  <a href="http://tmblr.co/ZXEE7vT6XOAm" target="_blank">Linux 软件包管理</a> (rpm dpkg yum apt-get)</li><br></ul><li>3. <strong>GNU 和 UNIX 命令</strong></li><br><ul><li>[+]<a href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-1/" target="_blank">Linux命令行</a>(bash echo env set exec uname history)</li><br><li>[+]<a href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-2/" target="_blank">文本流和过滤器</a>(cat od split wc expend pr ln fmt sort uniq cut paste join)</li><br><li>[+]<a href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-3/" target="_blank">文件和目录管理</a>(ls cp mv rm mkdir touch file gzip bzip2 dd) → <a href="http://tmblr.co/ZXEE7vT7AqkR" target="_blank">Linux 文件打包,压缩,解压</a> (tar) ,  <a href="http://tmblr.co/ZXEE7vTEJpZa" target="_blank">Linux 文件查找</a> (where type whereis find locate updatedb)</li><br><li>[+]<a href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-4/" target="_blank">流、管道和重定向</a> → <a href="http://tmblr.co/ZXEE7vTAITgV" target="_blank">Linux 数据流重定向</a></li><br><li>[+]创建、监视和终止进程</li><br><li>进程执行优先级</li><br><li>正则表达式搜索文本文件</li><br><li>[+]<a href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-8/" target="_blank">使用 vi 编辑</a> → Tag:vim</li><br></ul><li>4. <strong>设备、文件系统、文件系统层次标准(FHS)</strong></li><br><ul><li>创建分区和文件系统</li><br><li>维护文件系统的完整性</li><br><li>控制文件系统的装载和卸载</li><br><li>管理磁盘配额</li><br><li>管理文件权限和所有权</li><br><li>[+]创建和修改硬链接和符号链接</li><br><li>[+]查找系统文件<strong> → </strong></li><br></ul><li><em> Shell、脚本化和数据管理</em></li><br><li> 用户接口和桌面</li><br><li><em> 管理任务</em></li><br><li> 系统服务</li><br><li><em> 网络知识</em></li><br><li> 系统安全</li><br><li><strike>看完  <a href="http://coolshell.cn/tag/linux" target="_blank"><a href="http://coolshell.cn/tag/linux" target="_blank">http://coolshell.cn/tag/linux</a></a></strike></li><br><li><strike>看完  <a href="http://shell909090.com/blog/tag/debian/" target="_blank"><a href="http://shell909090.com/blog/tag/debian/" target="_blank">http://shell909090.com/blog/tag/debian/</a></a></strike></li><br></ul><p>想到再写..</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这81天我干了些啥  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://media.tumblr.com/tumblr_maaj1fGOq31rqghq6.png&quot;&gt;&lt;/p&gt;&lt;br&gt;&lt;p&gt;这周周末开学了，于是惯例做下9月-12月的计划。接下来的4个月会插入MSE的标签。&lt;/
+      
+    
+    </summary>
+    
+      <category term="todo" scheme="https://jlyu.github.io/categories/todo/"/>
     
     
   </entry>
