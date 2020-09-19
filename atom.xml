@@ -101,6 +101,101 @@
   </entry>
   
   <entry>
+    <title>11月19日</title>
+    <link href="https://jlyu.github.io/2015/11/19/2015-11-19-untitled/"/>
+    <id>https://jlyu.github.io/2015/11/19/2015-11-19-untitled/</id>
+    <published>2015-11-18T16:00:00.000Z</published>
+    <updated>2020-09-19T03:37:07.209Z</updated>
+    
+    <content type="html"><![CDATA[<p>　『塗仏の宴 宴の支度』と『塗仏の宴 宴の始末』を合わせて2000ページの超長編小説を終に読破した。</p><p>　これまでの登場人物、例えば<br>『姑獲鳥の夏』の内藤赳夫、<br>『魍魎の匣』の堂島静軒、<br>『狂骨の夢』の一柳朱美、<br>『絡新婦の理』の織作茜</p><p>等々が次から次へと出てきて人の懐かしい思いを誘き寄せた。<br>一方、今回の事件と絡み合う関係者達が「支度」でそれぞれ6つの妖怪主題のエピソードに割り当て、隠蔽し根本を読めない。<br>が、活躍ほど正に宴の狂気。しかし、後半までまだ全体像を丸きり見えないというじれったい気が体に走るのを覚えた。<br>待ちに待った最後「謎解き」の部分は以前より弱まった、それに語られなかったうすうす気になる部分も多く残されたように感じた。</p><p>　今回の事件というか実験のほうは妥当だろう。<br>興味本位で陰湿なゲームが繰り広げられ、一族を催眠術、薬剤、記憶改竄などによって解体されてしまった。<br>騙すつもりの方は騙されていたというどんでん返し。家族は15年後こんな形で再会するなんて嘆きの極りないことだ。</p><p>再構築評価陣：　絡新婦＞狂骨＞魍魎＞塗仏＞姑獲鳥＞鉄鼠</p><p><img src="/images/2015/11/tumblr_inline_ny2idqEJ6c1rqghq6_500.png" alt="alt"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;　『塗仏の宴 宴の支度』と『塗仏の宴 宴の始末』を合わせて2000ページの超長編小説を終に読破した。&lt;/p&gt;
+&lt;p&gt;　これまでの登場人物、例えば&lt;br&gt;『姑獲鳥の夏』の内藤赳夫、&lt;br&gt;『魍魎の匣』の堂島静軒、&lt;br&gt;『狂骨の夢』の一柳朱美、&lt;br&gt;『絡新婦の理』の織作茜&lt;
+      
+    
+    </summary>
+    
+      <category term="life" scheme="https://jlyu.github.io/categories/life/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>11月10日</title>
+    <link href="https://jlyu.github.io/2015/11/10/2015-11-10-untitled/"/>
+    <id>https://jlyu.github.io/2015/11/10/2015-11-10-untitled/</id>
+    <published>2015-11-09T16:00:00.000Z</published>
+    <updated>2020-09-19T03:35:27.079Z</updated>
+    
+    <content type="html"><![CDATA[<p>10日記念日と誕生日の祝いが済んだし、これから新たな目標（現金1000万）の為に努力を尽くしたいと思う。今朝5時早起きし、勉強に没頭していた。</p><p>マルチスレッドプログラミング<br>GCD (Grand Central Dispatch) は自動的にマルチスレッドの生命周期を管理する。ただ因んだ方法を呼び出していいから。重要な概念二つここで書き留め：任務と行列。任務というのはBlock（ｃlosure）の形で作成されて、同時（sync）あるいは非同時（async）的な実行の区別は目前のスレッドをブロックするかどうかだ。</p><p>関数実行　</p><p> let queue: dispatch_queue_t = <get the="" queue="" you="" want=""><br> dispatch_asyn(queue) { /<em>閉鎖 Closure</em>/ }</get></p><p>メインキュー　（シリアル）　</p><p>let mainQ: dispatch_queue_t = dispatch_get_main_queue()<br>let mainQ: NSOperationQueue = NSOperationQueue.mainQueue()<br>dispatch_asyn(notTheMainQueue) {<br>      // something might be block or takes a while<br>      dispatch_asyn(dispatch_get_main_queue()) {<br>       // call UI functions with the result of the above<br>      }<br> }</p><p>他の（同時・コンカレント）キュー </p><p> QOS_CLASS_USER_INTERACTIVE  //高優先度、瞬時完成できる<br> QOS_CLASS_USER_INITIATED  //高優先度、時間がかかる<br> QOS_CLASS_UTILITY //長時間の実行<br> QOS_CLASS_BACKGROUND  //ユーザに知らせる必要無し<br> let qos = Int(<one of="" the="" above="">.Value)<br> let queue = dispatch_get_global_queue(qos, 0)</one></p><p>自分の行列を創る  </p><p> let serialQ = dispatch_queue_create(“name”, DISPATCH_QUEUE_SERIAL)　//　DISPATCH_QUEUE_CONCURRENT　並行行列</p><p>NSThread　Class<br> let thread = NSThread(target: self, selector: “run:”, object: nil)　//作成<br> thread.start()<br> NSThread.detachNewThreadSelector(“run:”, toTarget: self, withObject: nil)</p><p>NSOperationとNSOperationQueueはそれぞれ任務と行列に対応する。<br>NSInvocationOperationと（Swift には存在しない）<br>NSBlockOperationはNSOperationのサブクラス。</p><p>応用編<br>1．相互排他　Exclusion mutuelle　同じ時間帯に指定されたスレッドだけがコードにアクセスできることを保証する。</p><p>　　objc_sync_enter(self)<br>　　//　コード実行<br>　　objc_sync_exit(self)</p><p>2．スレッド同期　実行したいスレッドを同じシリアル行列に入れるだけでスレッド同期を実現する</p><p>3．行列遅延</p><p> let delayInSeconds = 25.0<br> let delay = Int64(delayInSeconds <em> Double(NSEC_PER_MSEC))<br> let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, delay)<br> dispatch_after(dispatchTime, dispatch_get_main_queue()) { /</em>do something  on the main queue 25s from now*/ }</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;10日記念日と誕生日の祝いが済んだし、これから新たな目標（現金1000万）の為に努力を尽くしたいと思う。今朝5時早起きし、勉強に没頭していた。&lt;/p&gt;
+&lt;p&gt;マルチスレッドプログラミング&lt;br&gt;GCD (Grand Central Dispatch) は自動的にマルチスレッ
+      
+    
+    </summary>
+    
+      <category term="life" scheme="https://jlyu.github.io/categories/life/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>11月4日</title>
+    <link href="https://jlyu.github.io/2015/11/04/2015-11-04-untitled/"/>
+    <id>https://jlyu.github.io/2015/11/04/2015-11-04-untitled/</id>
+    <published>2015-11-03T16:00:00.000Z</published>
+    <updated>2020-09-19T03:38:43.514Z</updated>
+    
+    <content type="html"><![CDATA[<p>ネットで見知らぬ人と議論するのは時間の無駄だと思わせる。<br>時間を費やし自分の機嫌まで損なわれたという薄気味悪いデメリット。<br>たとえ対手を説得したとしても何のメリット無し、ただの自己満足に過ぎないといい加減に悟れ。<br>自分にとってやりたい事まだいっぱいあるじゃないか、<br>時間をを大切にしたいと言ったんじゃないか。<br>だから、無意味の口喧嘩を断じて禁止すべく。<br>よく考えてみればこつこつと一筋になればもっとも早い近道たと体験した覚えがある。<br>潜在意識で一番やり遂げたいことに時間を惜しまず注げよう！<br>『危険な』性格を持つ自分が2年間で財産を10倍プッシュにするチャンスを身近に手の届くところに実にあったんだ。<br>危険というのは他人に害を加えることではなくただ自分自身に危うく葬りそうになることを示しているのだ。<br>過謹慎かつ無防備。<br>損害を承知の上で無闇に投げやることができない、<br>結論を達するときいつも計算済み、<br>思惑通りに実行しなければ成らないという危険さ。</p><p><img src="/images/2015/11/tumblr_inline_nxa7a5ZKn41rqghq6_500.jpg" alt="alt"></p><p>面食いが憐れ気分に耽るニャー星人との思いもよらぬ接触。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;ネットで見知らぬ人と議論するのは時間の無駄だと思わせる。&lt;br&gt;時間を費やし自分の機嫌まで損なわれたという薄気味悪いデメリット。&lt;br&gt;たとえ対手を説得したとしても何のメリット無し、ただの自己満足に過ぎないといい加減に悟れ。&lt;br&gt;自分にとってやりたい事まだいっぱいあるじゃ
+      
+    
+    </summary>
+    
+      <category term="life" scheme="https://jlyu.github.io/categories/life/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>11月3日</title>
+    <link href="https://jlyu.github.io/2015/11/03/2015-11-03-UISplitView/"/>
+    <id>https://jlyu.github.io/2015/11/03/2015-11-03-UISplitView/</id>
+    <published>2015-11-02T16:00:00.000Z</published>
+    <updated>2020-09-19T03:31:04.685Z</updated>
+    
+    <content type="html"><![CDATA[<p>UISplitView, UINavigationView, UIScrollViewに関する知識を把握した。 </p><p>SeguesがMultiple MVCsの間、各画面遷移する為のものである。いつも新たなMVCを作成するが存在したMVCに遷移することが決してないという掟がある 。</p><p>override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {<br>    if let ivc = segue.destinationViewController as? ImageViewController {<br>        if let identifier = segue.identifier {<br>             switch identifier {…} </p><p><img src="/images/2015/11/tumblr_inline_nxa77pKpRP1rqghq6_500.png" alt="alt"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;UISplitView, UINavigationView, UIScrollViewに関する知識を把握した。 &lt;/p&gt;
+&lt;p&gt;SeguesがMultiple MVCsの間、各画面遷移する為のものである。いつも新たなMVCを作成するが存在したMVCに遷移することが決してない
+      
+    
+    </summary>
+    
+      <category term="work" scheme="https://jlyu.github.io/categories/work/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>403 Intermediate Swift</title>
     <link href="https://jlyu.github.io/2014/06/17/2014-06-17-intermediate-swift/"/>
     <id>https://jlyu.github.io/2014/06/17/2014-06-17-intermediate-swift/</id>
@@ -373,104 +468,11 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;http://www.douban.com/note/193124611/&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;2012年目标&lt;/a&gt;&lt;span&gt;达成度100%，但若加上加上不可抗力且非凭己努力便可达到之目标，总体上只有80%吧。&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+      &lt;p&gt;&lt;a href=&quot;http://www.douban.com/note/193124611/&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;2012年目标&lt;/a&gt;&lt;span&gt;达成度100%，但若加上加上不可抗力且非凭己努力便可达到之目标，总体上只有80%吧。&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
       <category term="yearly" scheme="https://jlyu.github.io/categories/yearly/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>回顾3年来观影感悟</title>
-    <link href="https://jlyu.github.io/2012/11/13/2012-11-13-3/"/>
-    <id>https://jlyu.github.io/2012/11/13/2012-11-13-3/</id>
-    <published>2012-11-13T08:00:00.000Z</published>
-    <updated>2017-05-25T15:20:58.400Z</updated>
-    
-    <content type="html"><![CDATA[<p><ul><li>三年前也就是2009-11-13在豆瓣写上了自己的状态：“最近真的不在状态。”</li></ul></p><p><li>三年后的今天2012-11-14仔细想想还是能写上这样：“最近真的不在状态。”</li><br><blockquote></blockquote></p><a id="more"></a><p></p><p>事情过去了，再怎么做也与事无补，可已经拼命地在做了。勇敢一点，不然会后悔一辈子…老是说“如果”，这样根本没完没了。</p><p></p><p></p><p>自分の存在する理由を聞きとがめ、自分が戦う意志を動揺不定、戦死にいたるまで想像より凄まじき恐怖感、毎回不愉快な経験は精神を苛立つ。即使在这个随时随地都可以把你替代了的世界上，也不要摆出一张消极的脸嘛，你会错失许多许多有趣的事。不要逃避，嗯。</p><br><p></p><blockquote><br><p>ひとり暮らしの夜は長く感じた。うまく時間を過ごせないときはぼくは近くの駅まで歩き、誰かを待っている振りをしながら時間を潰してそれにもあきると家までの帰り道をなるべくゆっくりと歩いた。高校に友達がいたけれとも制服を着ている時以外はどうしてかあまりいっしょにいたいと思わなかった。3,000万以上の人間が住む街で考えてみれば会いたい人も話したいも僕には誰もいなかった。</p><br></blockquote><br><blockquote><br><p>幸せって一体どんなものだっただろうと思わせる。ドン底でも幸福でも人生の流れの中でどっちでもある。どっちでもあるなら、どっちでもいいじゃねえかなと思えった。</p><br></blockquote><br><blockquote><br><p>真の恐怖は大事なものが奪われること。よって、恐怖に立ち向かうように大事なものをいのちをかけても必死に守ることとしんじていいんですか？わたしはうばうがわにまわる。</p><br></blockquote><br><blockquote><br><p>痛みを伴わない教訓には意義が無い。人には何かの犠牲なしには、何も得ることが出来ないのだから。しかし、この痛みに耐え、乗り越えた時、人は何物にも負けない強靭な心を手に入れる。鋼のような心</p><br></blockquote><br><blockquote><br><p>甘えを捨てだれにも頼らず、ひたすら一人を求め、か弱い存在から強い心且つ強靱なキャラーへと成し遂げるまで何度も繰り返さなけねばならないのか。けれど、最高のターゲットの前にいたって代価として自分のすべてを捧げようにしても構わない</p><br></blockquote><br><blockquote><br><p>悲しみを背負う人しか究極奥義『無想転生』まで悟らない。つまりすべてが無、無からすべてを生み出す。</p><br></blockquote><br><blockquote><br><p>人は理想の自分を超えられない。「架空の理想の人物」を作り、そいつならどうするか、を徹底的に「マネ」してみた。マネって勉強するってことなんだ。つまり究極の勉強方法ってこと。</p><br></blockquote><br><blockquote><br><p>人は意識しないと群がってしまう動物なのだ。1人で行動することを「寂しいですね」と言う人は、他の人のために自分の人生を削っていることに気づかなければならない。</p><br></blockquote><br><blockquote><br><p>无论你需要直面的现实是多么地残酷，人都将因为自己的梦想而得到救赎。成功的黎明前总是孤独的在黑暗中无尽求索和受苦。</p><br></blockquote><br><blockquote><br><p>有所保留就是仍怀有无限希望。心存希望同时也会被拽入绝望的深渊。扔掉恐惧与愤怒的保险带，全力以赴的舍身一击才有可能换来人生的崛起。</p><br></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;ul&gt;&lt;li&gt;三年前也就是2009-11-13在豆瓣写上了自己的状态：“最近真的不在状态。”&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;&lt;li&gt;三年后的今天2012-11-14仔细想想还是能写上这样：“最近真的不在状态。”&lt;/li&gt;&lt;br&gt;&lt;blockquote&gt;&lt;/blockquote&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="reincarnation" scheme="https://jlyu.github.io/categories/reincarnation/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>向死而生</title>
-    <link href="https://jlyu.github.io/2012/11/11/2012-11-11-%E5%90%91%E6%AD%BB%E8%80%8C%E7%94%9F/"/>
-    <id>https://jlyu.github.io/2012/11/11/2012-11-11-向死而生/</id>
-    <published>2012-11-11T08:00:00.000Z</published>
-    <updated>2018-08-09T14:52:34.333Z</updated>
-    
-    <content type="html"><![CDATA[<p>3:30ごろ目を覚めた。 </p><p>腹の所は激痛だったのだ。<br>痛みの電流はわたしの全身から走り回ているみたいだったのだ。<br>わたしはその時このまま死んでも構わないだろうとさえ思いやがった。  </p><p>何もかもが始まらないし終わろうともしなかった。<br>だからいっそう全てを投げやりにして死んでゆくが良いのさ。<br>未練なし、人はいずれ死ぬという定めがずっと前から決めされたものだった。<br>その時の意識は明白だった、決して寝ぼけだったりしていなかった。<br>自分の意志で物事を考え、その結論でも思い浮かべていた。<br>救いもういらないし、同情とされることもなおさらだ。<br>自ら死を求めている。もし今夜死んでくれたら死なせてほしい。<br>こんな発想は止められなかったにもかかわらず痛みは止まなかった。<br>わたしは何の声も出さずにじっとしてて苦しみを耐え切った。<br>突然、わたしがあることに気付いた。<br>それはわたしが死を恐れぬことだ。  </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;3:30ごろ目を覚めた。 &lt;/p&gt;
-&lt;p&gt;腹の所は激痛だったのだ。&lt;br&gt;痛みの電流はわたしの全身から走り回ているみたいだったのだ。&lt;br&gt;わたしはその時このまま死んでも構わないだろうとさえ思いやがった。  &lt;/p&gt;
-&lt;p&gt;何もかもが始まらないし終わろうともしなかった。&lt;b
-      
-    
-    </summary>
-    
-      <category term="reincarnation" scheme="https://jlyu.github.io/categories/reincarnation/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Double</title>
-    <link href="https://jlyu.github.io/2012/11/10/2012-11-10-double-single/"/>
-    <id>https://jlyu.github.io/2012/11/10/2012-11-10-double-single/</id>
-    <published>2012-11-10T08:00:00.000Z</published>
-    <updated>2018-08-09T14:52:48.388Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>仕事</strong></p><br><p>　今週いっぱいプロジェクト三つに追われた。一つ、『单片机C源码转VC++的基于UART协议RS232串口通信数据采集程序』(全部片付けたらまとめて経験文でも書こう)；一つ、前のÇ+＋プロジェクトパフォーマンスの最適化、要件変更と機能追加とのことだ。一つ、あるウェブアプリケーションの開発。主に自己の学習に関するサイトを作り出したいんだ。</p><p><strong>学校</strong></p><br><p>　相変わらずに週末の勉強にやる気はまったく出てこうなくなってた。それに、日曜で起きた悲惨なことにクラスメートのチェックインの偽造することがバレちゃった。先生はものすごく怒られ、事件の真実を最後まで追求するといったような宣言をしたが、幸い救済措置間に合って先生の機嫌も取り戻した。何となく一つの難関を突破した。しかし、その代価はあまり重いや。</p><br><p><strong>生活</strong></p><br><p>　『青い文学シリーズ』を満喫した。なんか日本の名作にハマちゃった。人、人間、人としての人間らしさ。こころ、信頼、所々まで綿密な筆が素晴らしい。克明にわたしのこころに印を残してくれた。</p><br><ul><li>太宰治　　『人間失格』『走れメロス』</li><br><li>夏目瀬石　『こころ』</li><br><li>芥川龍之介『鼻』『蜘蛛の糸』『地獄変』</li><br><li>坂口安吾　『桜森の満開中の下』</li><br></ul><p>出来れば以上リストされた項目の原作をこの目で見てみたい。したし、こう云う陰湿な内容を見過ぎでわたしはますます人間不信になってしまうかもわからない…</p><br><p>4dian网个人页面原型</p><br><p><img src="http://media.tumblr.com/tumblr_mdbqck7VEe1rqghq6.png"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt;仕事&lt;/strong&gt;&lt;/p&gt;&lt;br&gt;&lt;p&gt;　今週いっぱいプロジェクト三つに追われた。一つ、『单片机C源码转VC++的基于UART协议RS232串口通信数据采集程序』(全部片付けたらまとめて経験文でも書こう)；一つ、前のÇ+＋プロジェクトパフォーマンスの最適
-      
-    
-    </summary>
-    
-      <category term="weekly" scheme="https://jlyu.github.io/categories/weekly/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>手に負えないことをやらなきゃ</title>
-    <link href="https://jlyu.github.io/2012/10/13/2012-10-13-9-12m-todo-list/"/>
-    <id>https://jlyu.github.io/2012/10/13/2012-10-13-9-12m-todo-list/</id>
-    <published>2012-10-13T08:00:00.000Z</published>
-    <updated>2018-08-09T14:54:29.974Z</updated>
-    
-    <content type="html"><![CDATA[<p>这81天我干了些啥  </p><p><img src="http://media.tumblr.com/tumblr_maaj1fGOq31rqghq6.png"></p><br><p>这周周末开学了，于是惯例做下9月-12月的计划。接下来的4个月会插入MSE的标签。</p><br><pre><span class="term_note"><strong>日常记事</strong></span></pre><br><ul><li><strike>09月中旬<a href="http://www.kobaioh.com/special/20120913_half_canpaign/" target="_blank">购买王</a>『からくりサーカス』14-16</strike></li><br><li>12月中旬<a href="http://www.kobaioh.com/special/20120913_half_canpaign/" target="_blank">购买王</a>『からくりサーカス』17-19</li><br></ul><pre><span class="term_note"><strong>MSE课程</strong></span></pre><br><ul><li><strike>课程表的确认与作成</strike></li><br><li><strike>教材的购买</strike></li><br><li><strike>9月11日开始 (误)  CET6网上报名，12月底陪同学再刷一次成绩</strike></li><br><li><strike>150~300 words Abstract  (Deadline-10-06)</strike></li><br><li><strike>SAE平台介绍PPT作成及演讲 (Deadline-10-13)</strike></li><br><li><strike>高级软件工程的选题和组队 (Deadline-10-18)</strike></li><br><li>基于SAE的企业库存管理系统实现研究报告  (Deadline-11-30)</li><br><li>Chain Challenge CET6 one more time  (Deadline-12-15)</li><br><li>知识产权主题相关论文3500字 (Deadline-12-10|20)</li><br><li>基于Hadoop建立的反向索引应用 (Deadline-2012 later)</li><br><li>基于HBase建立数据表  (Deadline-2012 later)</li><br><li><strike>Web App: 贸易公司进销存管理系统 (Deadline-2012 later)</strike></li><br></ul><pre><span class="term_note"><strong>学习计划</strong></span></pre><br><ul><li><strike>学习JavaScript和JQuery</strike></li><br><li><strike><a href="http://tmblr.co/ZXEE7vTXlme-" target="_blank">基于SAE的进销存管理系统的技术实现</a> (Deadline: 8W→11.11) </strike></li><br><li>《HTTP权威指南》先速读扫一遍，700多页的大部头。</li><br><li>《Shell脚本学习指南》学完， 能用shell写一份装机用script。深入了解文本处理命令</li><br><li><a href="http://coolshell.cn/articles/1379.html" target="_blank">bash脚本调试</a> </li><br><li>Linux 模块化系统操作的Review，先列目录，如下。</li><br><li>Linux CLI 修改 font，<strike>color</strike></li><br><li>学习下VIM的Vundle插件 </li><br><li><strike>重装Debian，手动分区。安装chrome，VMware，nutcloud，git，配置编程环境，</strike>PDF阅读软件，Openoffice办公软件(可选)，用thunderbird收发邮件</li><br><li>学习gnupg和签名技术</li><br></ul><pre><span class="term_note"><strong>Linux目录</strong></span></pre><br><ul><li>1. <strong>系统架构</strong></li><br><ul><li>修改运行级别并关闭或重启系统</li><br></ul><li>2. <strong>Linux 安装和包管理</strong></li><br><ul><li>硬件布局</li><br><li>引导管理器</li><br><li>管理共享库</li><br><li>[+]Debian 包管理</li><br><li>[+]使用 RPM 和 YUM 包管理 →  <a href="http://tmblr.co/ZXEE7vT6XOAm" target="_blank">Linux 软件包管理</a> (rpm dpkg yum apt-get)</li><br></ul><li>3. <strong>GNU 和 UNIX 命令</strong></li><br><ul><li>[+]<a href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-1/" target="_blank">Linux命令行</a>(bash echo env set exec uname history)</li><br><li>[+]<a href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-2/" target="_blank">文本流和过滤器</a>(cat od split wc expend pr ln fmt sort uniq cut paste join)</li><br><li>[+]<a href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-3/" target="_blank">文件和目录管理</a>(ls cp mv rm mkdir touch file gzip bzip2 dd) → <a href="http://tmblr.co/ZXEE7vT7AqkR" target="_blank">Linux 文件打包,压缩,解压</a> (tar) ,  <a href="http://tmblr.co/ZXEE7vTEJpZa" target="_blank">Linux 文件查找</a> (where type whereis find locate updatedb)</li><br><li>[+]<a href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-4/" target="_blank">流、管道和重定向</a> → <a href="http://tmblr.co/ZXEE7vTAITgV" target="_blank">Linux 数据流重定向</a></li><br><li>[+]创建、监视和终止进程</li><br><li>进程执行优先级</li><br><li>正则表达式搜索文本文件</li><br><li>[+]<a href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-8/" target="_blank">使用 vi 编辑</a> → Tag:vim</li><br></ul><li>4. <strong>设备、文件系统、文件系统层次标准(FHS)</strong></li><br><ul><li>创建分区和文件系统</li><br><li>维护文件系统的完整性</li><br><li>控制文件系统的装载和卸载</li><br><li>管理磁盘配额</li><br><li>管理文件权限和所有权</li><br><li>[+]创建和修改硬链接和符号链接</li><br><li>[+]查找系统文件<strong> → </strong></li><br></ul><li><em> Shell、脚本化和数据管理</em></li><br><li> 用户接口和桌面</li><br><li><em> 管理任务</em></li><br><li> 系统服务</li><br><li><em> 网络知识</em></li><br><li> 系统安全</li><br><li><strike>看完  <a href="http://coolshell.cn/tag/linux" target="_blank"><a href="http://coolshell.cn/tag/linux" target="_blank">http://coolshell.cn/tag/linux</a></a></strike></li><br><li><strike>看完  <a href="http://shell909090.com/blog/tag/debian/" target="_blank"><a href="http://shell909090.com/blog/tag/debian/" target="_blank">http://shell909090.com/blog/tag/debian/</a></a></strike></li><br></ul><p>想到再写..</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这81天我干了些啥  &lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://media.tumblr.com/tumblr_maaj1fGOq31rqghq6.png&quot;&gt;&lt;/p&gt;&lt;br&gt;&lt;p&gt;这周周末开学了，于是惯例做下9月-12月的计划。接下来的4个月会插入MSE的标签。&lt;/
-      
-    
-    </summary>
-    
-      <category term="todo" scheme="https://jlyu.github.io/categories/todo/"/>
     
     
   </entry>
